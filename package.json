@@ -3,7 +3,8 @@
     "@typescript-eslint/eslint-plugin": "^8.32.1",
     "@typescript-eslint/parser": "^8.32.1",
     "eslint": "^9.27.0",
-    "husky": "^8.0.3"
+    "husky": "^8.0.3",
+    "vitest": "^3.1.4"
   },
   "scripts": {
     "lint": "eslint 'src/**/*.{js,ts}'",
