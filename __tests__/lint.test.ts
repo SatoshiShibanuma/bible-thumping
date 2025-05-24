@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { execSync } from 'child_process';
 
 describe('ESLint Configuration', () => {
@@ -14,10 +15,10 @@ describe('ESLint Configuration', () => {
 
   it('should have correct lint rules configured', () => {
     // Basic check for ESLint configuration
-    const { rules } = require('../.eslintrc.js');
+    const eslintConfig = require('../.eslintrc.js');
     
-    expect(rules).toBeDefined();
-    expect(rules['@typescript-eslint/no-explicit-any']).toBe('warn');
-    expect(rules['max-len']).toBeDefined();
+    expect(eslintConfig.rules).toBeDefined();
+    expect(eslintConfig.rules['@typescript-eslint/no-explicit-any']).toBe('warn');
+    expect(eslintConfig.rules['max-len']).toBeDefined();
   });
 });
