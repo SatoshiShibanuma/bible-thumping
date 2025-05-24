@@ -1,25 +1,21 @@
-const { FlatCompat } = require('@eslint/eslintrc');
-const js = require('@eslint/js');
-const typescriptEslint = require('@typescript-eslint/eslint-plugin');
-const typescriptParser = require('@typescript-eslint/parser');
+import js from '@eslint/js';
+import typescript from '@typescript-eslint/eslint-plugin';
+import tsParser from '@typescript-eslint/parser';
 
-const compat = new FlatCompat();
-
-module.exports = [
+export default [
   {
     files: ['**/*.ts', '**/*.tsx'],
     languageOptions: {
-      parser: typescriptParser,
+      parser: tsParser,
       parserOptions: {
         project: './tsconfig.json',
       },
     },
     plugins: {
-      '@typescript-eslint': typescriptEslint,
+      '@typescript-eslint': typescript,
     },
     rules: {
       ...js.configs.recommended.rules,
-      ...typescriptEslint.configs['recommended'].rules,
       '@typescript-eslint/no-explicit-any': 'warn',
       'no-console': 'warn',
       'complexity': ['warn', 10],
@@ -29,12 +25,5 @@ module.exports = [
         ignoreTrailingComments: true 
       }]
     }
-  },
-  ...compat.config({
-    extends: [
-      'eslint:recommended',
-      'plugin:@typescript-eslint/recommended',
-      'plugin:@typescript-eslint/recommended-type-checked'
-    ]
-  })
+  }
 ];
